@@ -1,0 +1,39 @@
+<head>
+  <title>caselog</title>
+</head>
+
+<template name="header">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{pathFor 'home'}}">Accounts Admin UI</a>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">  
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            {{> loginButtons }}
+            </ul>
+        </div>
+    </div>
+</template>
+
+<template name="cases">
+    <h2>Available Cases:</h2>
+    <ul>
+    {{#each this}}
+        <li>{{title}}</li>
+    {{/each}}
+    </ul>
+</template>
+
+<template name="insertCaseForm">
+  {{> quickForm collection="Cases" id="insertCaseForm" type="insert"}}
+</template>
+
+<template name="layout">
+    {{>header}}
+    {{>insertCaseForm}}
+    <div class="row">{{> yield}}</div>
+</template>
